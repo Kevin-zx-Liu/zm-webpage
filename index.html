@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zhongmai Machinery Manufacturing</title>
+<style>
+:root{--c:#1e3a5f;--cm:#2660a4;--ch:#152c48;--cbg:#f0f5fb;--cba:#dce8f6;--ci:#e8f0fa;--bd:#d0e0ef}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#1a1a1a;background:#fff}
+a{text-decoration:none;color:inherit}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;border-bottom:1px solid var(--bd);position:sticky;top:0;background:#fff;z-index:100;gap:1rem;flex-wrap:wrap}
+.logo-main{font-size:1rem;font-weight:700}.logo-main span{color:var(--c)}
+.logo-sub{font-size:.67rem;color:#aaa;letter-spacing:.04em;margin-top:1px}
+nav ul{list-style:none;display:flex;gap:1.6rem}
+nav ul a{font-size:.84rem;color:#555;transition:color .2s}
+nav ul a:hover{color:var(--c)}
+.nav-r{display:flex;align-items:center;gap:.7rem}
+.nav-cta{background:var(--c);color:#fff!important;padding:.4rem .95rem;border-radius:4px;font-size:.84rem!important;white-space:nowrap;transition:background .2s!important}
+.nav-cta:hover{background:var(--ch)!important}
+.lsw{display:flex;border:1px solid var(--bd);border-radius:4px;overflow:hidden}
+.lbtn{padding:.28rem .5rem;font-size:.76rem;cursor:pointer;border:none;background:#fff;color:#888;transition:all .2s;font-family:inherit}
+.lbtn.active{background:var(--c);color:#fff}
+.hero{background:var(--cbg);padding:5rem 5%;display:flex;align-items:center;justify-content:space-between;gap:2.5rem}
+.hero-t{max-width:540px}
+.badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--cba);color:var(--c);font-size:.72rem;font-weight:600;padding:.26rem .78rem;border-radius:20px;margin-bottom:1.1rem;letter-spacing:.05em;text-transform:uppercase}
+h1{font-size:2.4rem;font-weight:700;line-height:1.2;color:#111;margin-bottom:.95rem}
+h1 em{font-style:normal;color:var(--c)}
+.hero p{font-size:.97rem;color:#555;line-height:1.78;margin-bottom:1.7rem}
+.bp{background:var(--c);color:#fff;padding:.68rem 1.6rem;border-radius:4px;font-size:.88rem;font-weight:500;display:inline-block;transition:background .2s;border:none;cursor:pointer}
+.bp:hover{background:var(--ch)}
+.bo{background:transparent;color:var(--c);padding:.68rem 1.6rem;border-radius:4px;font-size:.88rem;font-weight:500;display:inline-block;border:1.5px solid var(--c);margin-left:.7rem;transition:all .2s;cursor:pointer}
+.bo:hover{background:var(--ci)}
+.trow{display:flex;flex-wrap:wrap;gap:1.3rem;margin-top:1.7rem}
+.ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#666}
+.td{width:5px;height:5px;border-radius:50%;background:var(--c);flex-shrink:0}
+.hv{flex-shrink:0;width:280px;height:210px;background:var(--cba);border-radius:8px;display:flex;align-items:center;justify-content:center}
+section{padding:4.5rem 5%}
+.lbl{font-size:.72rem;font-weight:600;color:var(--c);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+.ttl{font-size:1.75rem;font-weight:700;color:#111;margin-bottom:.5rem}
+.sub{font-size:.96rem;color:#666;line-height:1.72;max-width:600px}
+.about{background:#fff}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-top:2.2rem}
+.ag p{font-size:.94rem;color:#555;line-height:1.82;margin-bottom:.85rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.stat{border-left:3px solid var(--c);padding-left:.9rem}
+.stn{font-size:1.8rem;font-weight:700;color:#111}
+.stl{font-size:.77rem;color:#999;margin-top:.1rem}
+.products{background:var(--cbg)}
+.ctabs{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.3rem 0 1.8rem}
+.ct{padding:.35rem .9rem;border-radius:20px;font-size:.79rem;cursor:pointer;border:1px solid var(--bd);background:#fff;color:#555;transition:all .2s}
+.ct.active,.ct:hover{background:var(--c);color:#fff;border-color:var(--c)}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.pc{background:#fff;border:1px solid #e5e8ee;border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.pc:hover{border-color:var(--c);box-shadow:0 4px 14px rgba(30,58,95,.1)}
+.pim{width:100%;height:125px;background:#f4f7fb;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pim img{width:100%;height:100%;object-fit:contain;padding:10px}
+.pph{display:flex;flex-direction:column;align-items:center;gap:4px}
+.pph svg{opacity:.25}
+.pph span{font-size:.67rem;color:#c0c8d4}
+.pname{font-size:.79rem;font-weight:600;color:#1a1a1a;padding:.6rem .75rem .72rem;line-height:1.3}
+.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:1000;align-items:center;justify-content:center}
+.mo.open{display:flex}
+.md{background:#fff;border-radius:10px;padding:1.7rem;max-width:390px;width:90%;position:relative}
+.mdx{position:absolute;top:.85rem;right:.85rem;background:none;border:none;font-size:1.1rem;cursor:pointer;color:#aaa;line-height:1}
+.mim{width:100%;height:175px;background:var(--ci);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;overflow:hidden}
+.mim img{width:100%;height:100%;object-fit:contain;padding:14px}
+.md h3{font-size:1.02rem;font-weight:600;margin-bottom:.42rem}
+.md p{font-size:.85rem;color:#666;line-height:1.65}
+.mcta{margin-top:1rem;width:100%;background:var(--c);color:#fff;padding:.65rem;border:none;border-radius:4px;font-size:.88rem;cursor:pointer;font-weight:500}
+.mcta:hover{background:var(--ch)}
+.why{background:#fff}
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.2rem}
+.wc{padding:1.3rem;border:1px solid #eaedf2;border-radius:8px}
+.wi{width:37px;height:37px;background:var(--ci);border-radius:7px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem}
+.wc h3{font-size:.91rem;font-weight:600;color:#111;margin-bottom:.36rem}
+.wc p{font-size:.82rem;color:#666;line-height:1.65}
+.contact{background:var(--cbg)}
+.cw{display:grid;grid-template-columns:1fr 1.55fr;gap:3.5rem;align-items:start;margin-top:2.2rem}
+.cib p{font-size:.93rem;color:#555;line-height:1.8;margin-bottom:1.3rem}
+.cd{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.85rem}
+.cdi{width:29px;height:29px;background:var(--ci);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.cd p{font-size:.83rem;color:#555;margin:0}
+.cd strong{display:block;font-size:.7rem;color:#b0b8c4;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.1rem}
+form{display:flex;flex-direction:column;gap:.82rem}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:.82rem}
+label{font-size:.77rem;color:#555;font-weight:500;margin-bottom:.2rem;display:block}
+input,select,textarea{width:100%;padding:.58rem .8rem;border:1px solid #d8e2ec;border-radius:4px;font-size:.87rem;font-family:inherit;color:#111;background:#fff;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--c)}
+textarea{resize:vertical;min-height:92px}
+.sbtn{background:var(--c);color:#fff;padding:.72rem;border:none;border-radius:4px;font-size:.88rem;font-weight:500;cursor:pointer;transition:background .2s;width:100%}
+.sbtn:hover{background:var(--ch)}
+.fsuc{display:none;background:var(--cba);color:var(--c);padding:.85rem;border-radius:4px;font-size:.85rem;text-align:center;margin-top:.4rem}
+footer{background:#0d1f35;color:#6a84a0;padding:2.3rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fl{font-size:.92rem;font-weight:700;color:#fff}.fl span{color:#6ab0e0}
+footer p{font-size:.78rem}
+@media(max-width:900px){.pg{grid-template-columns:repeat(2,1fr)}.wg{grid-template-columns:1fr 1fr}.ag,.cw{grid-template-columns:1fr}}
+@media(max-width:600px){.hero{flex-direction:column}.hv{width:100%}h1{font-size:1.8rem}nav ul{display:none}.wg{grid-template-columns:1fr}.fr2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <div class="logo-main"><span>Zhongmai</span> Machinery</div>
+    <div class="logo-sub">Hebei · Est. 1998</div>
+  </div>
+  <ul>
+    <li><a href="#about" data-t="nav.about"></a></li>
+    <li><a href="#products" data-t="nav.products"></a></li>
+    <li><a href="#why" data-t="nav.why"></a></li>
+    <li><a href="#contact" data-t="nav.contact"></a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="#contact" class="nav-cta" data-t="nav.quote"></a>
+    <div class="lsw">
+      <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lbtn" data-lang="de" onclick="setLang('de')">DE</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-t">
+    <div class="badge">
+      <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="var(--c)" stroke-width="1.4"/><path d="M3 5.5l2 2 3-3" stroke="var(--c)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-t="hero.badge"></span>
+    </div>
+    <h1 data-th="hero.h1"></h1>
+    <p data-t="hero.p"></p>
+    <a href="#contact" class="bp" data-t="hero.cta1"></a><a href="#products" class="bo" data-t="hero.cta2"></a>
+    <div class="trow">
+      <div class="ti"><div class="td"></div><span data-t="trust.1"></span></div>
+      <div class="ti"><div class="td"></div><span data-t="trust.2"></span></div>
+      <div class="ti"><div class="td"></div><span data-t="trust.3"></span></div>
+    </div>
+  </div>
+  <div class="hv">
+    <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+      <rect x="15" y="20" width="9" height="110" fill="var(--c)" rx="2" opacity=".6"/>
+      <rect x="70" y="20" width="9" height="110" fill="var(--c)" rx="2" opacity=".6"/>
+      <rect x="125" y="20" width="9" height="110" fill="var(--c)" rx="2" opacity=".6"/>
+      <rect x="15" y="38" width="119" height="9" fill="var(--cm)" rx="1" opacity=".7"/>
+      <rect x="15" y="70" width="119" height="9" fill="var(--cm)" rx="1" opacity=".7"/>
+      <rect x="15" y="102" width="119" height="9" fill="var(--cm)" rx="1" opacity=".7"/>
+    </svg>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="lbl" data-t="about.lbl"></div>
+  <h2 class="ttl" data-t="about.ttl"></h2>
+  <div class="ag">
+    <div>
+      <p data-t="about.p1"></p>
+      <p data-t="about.p2"></p>
+      <p data-t="about.p3"></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stn">1998</div><div class="stl" data-t="stat.1l"></div></div>
+      <div class="stat"><div class="stn">25+</div><div class="stl" data-t="stat.2l"></div></div>
+      <div class="stat"><div class="stn">OEM</div><div class="stl" data-t="stat.3l"></div></div>
+      <div class="stat"><div class="stn" data-t="stat.4n"></div><div class="stl" data-t="stat.4l"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="lbl" data-t="prod.lbl"></div>
+  <h2 class="ttl" data-t="prod.ttl"></h2>
+  <p class="sub" data-t="prod.sub"></p>
+  <div class="ctabs" id="ctabs"></div>
+  <div class="pg" id="pg"></div>
+</section>
+
+<section class="why" id="why">
+  <div class="lbl" data-t="why.lbl"></div>
+  <h2 class="ttl" data-t="why.ttl"></h2>
+  <div class="wg">
+    <div class="wc"><div class="wi"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9h14M9 2v14" stroke="var(--c)" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3 data-t="why.1t"></h3><p data-t="why.1p"></p></div>
+    <div class="wc"><div class="wi"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="var(--c)"/><rect x="11" y="2" width="5" height="5" rx="1" fill="var(--c)"/><rect x="2" y="11" width="5" height="5" rx="1" fill="var(--c)"/><rect x="11" y="11" width="5" height="5" rx="1" fill="var(--c)"/></svg></div><h3 data-t="why.2t"></h3><p data-t="why.2p"></p></div>
+    <div class="wc"><div class="wi"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="var(--c)" stroke-width="1.6"/><path d="M9 5.5v3.8l2.3 1.8" stroke="var(--c)" stroke-width="1.6" stroke-linecap="round"/></svg></div><h3 data-t="why.3t"></h3><p data-t="why.3p"></p></div>
+    <div class="wc"><div class="wi"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9.5l3.5 3.5L15 5" stroke="var(--c)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 data-t="why.4t"></h3><p data-t="why.4p"></p></div>
+    <div class="wc"><div class="wi"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 12.5l4-4 3 3 5-7" stroke="var(--c)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 data-t="why.5t"></h3><p data-t="why.5p"></p></div>
+    <div class="wc"><div class="wi"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C6 1.5 3.5 4 3.5 6.8c0 4 5.5 9.7 5.5 9.7s5.5-5.7 5.5-9.7C14.5 4 12 1.5 9 1.5z" stroke="var(--c)" stroke-width="1.6"/><circle cx="9" cy="7" r="2" fill="var(--c)"/></svg></div><h3 data-t="why.6t"></h3><p data-t="why.6p"></p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="lbl" data-t="con.lbl"></div>
+  <h2 class="ttl" data-t="con.ttl"></h2>
+  <div class="cw">
+    <div class="cib">
+      <p data-t="con.p"></p>
+      <div class="cd"><div class="cdi"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="2.5" width="12" height="9" rx="1.5" stroke="var(--c)" stroke-width="1.3"/><path d="M1 4.5l6 4 6-4" stroke="var(--c)" stroke-width="1.3"/></svg></div><p><strong data-t="con.email"></strong><span data-t="con.emailv"></span></p></div>
+      <div class="cd"><div class="cdi"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2h2.8L6 5 4.5 6.5c.9 1.8 2.2 3.1 4 4L10 9l3 1.3v2.2c0 .5-.5.8-1 .6C3.5 11.2 1.2 4.5 2 2z" stroke="var(--c)" stroke-width="1.3" stroke-linecap="round"/></svg></div><p><strong data-t="con.phone"></strong><span data-t="con.phonev"></span></p></div>
+      <div class="cd"><div class="cdi"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5.8" r="2.2" stroke="var(--c)" stroke-width="1.3"/><path d="M7 1C4.2 1 2 3.2 2 5.8c0 3.8 5 7.7 5 7.7s5-3.9 5-7.7C12 3.2 9.8 1 7 1z" stroke="var(--c)" stroke-width="1.3"/></svg></div><p><strong data-t="con.loc"></strong><span data-t="con.locv"></span></p></div>
+    </div>
+    <form id="cf">
+      <div class="fr2">
+        <div><label data-t="form.fn"></label><input type="text" id="f-fn" data-tp="form.fn.ph"/></div>
+        <div><label data-t="form.ln"></label><input type="text" id="f-ln" data-tp="form.ln.ph"/></div>
+      </div>
+      <div><label data-t="form.email"></label><input type="email" id="f-em" data-tp="form.email.ph"/></div>
+      <div class="fr2">
+        <div>
+          <label data-t="form.country"></label>
+          <select id="f-co">
+            <option value="" data-t="form.country.0"></option>
+            <option>Australia</option><option>United States</option><option>Germany</option><option>United Kingdom</option><option>New Zealand</option><option>Canada</option><option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label data-t="form.pi"></label>
+          <select id="f-pi">
+            <option value="" data-t="form.pi.0"></option>
+            <option data-t="form.pi.1"></option><option data-t="form.pi.2"></option><option data-t="form.pi.3"></option><option data-t="form.pi.4"></option><option data-t="form.pi.5"></option><option data-t="form.pi.6"></option>
+          </select>
+        </div>
+      </div>
+      <div><label data-t="form.msg"></label><textarea id="f-ms" data-tp="form.msg.ph"></textarea></div>
+      <button type="button" class="sbtn" id="f-sb" data-t="form.submit" onclick="submitForm()"></button>
+      <div class="fsuc" id="fsuc" data-t="form.success"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="fl"><span>Zhongmai</span> Machinery Manufacturing Co., Ltd.</div>
+    <p style="margin-top:.28rem" data-t="footer.tag"></p>
+  </div>
+  <p data-t="footer.copy"></p>
+</footer>
+
+<div class="mo" id="mo" onclick="closeMo(event)">
+  <div class="md">
+    <button class="mdx" onclick="document.getElementById('mo').classList.remove('open')">✕</button>
+    <div class="mim" id="mim"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" stroke="#c5d2e0" stroke-width="1.5"/><circle cx="13" cy="15" r="4" stroke="#c5d2e0" stroke-width="1.5"/><path d="M4 26l8-6 6 5 5-4 9 7" stroke="#c5d2e0" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <h3 id="m-nm"></h3>
+    <p id="m-ds"></p>
+    <button class="mcta" id="m-cta" onclick="scrollContact()"></button>
+  </div>
+</div>
+
+<script>
+const T={
+en:{
+'nav.about':'About','nav.products':'Products','nav.why':'Why Us','nav.contact':'Contact','nav.quote':'Get a Quote',
+'hero.badge':'Est. 1998 · 20+ Years Export Experience',
+'hero.h1':'Precision Metal Components<br>for <em>Farm &amp; Stockyard</em>',
+'hero.p':'Zhongmai Machinery Manufacturing Co., Ltd. specializes in high-quality metal components for stockyard panels and farm gates — exported to customers worldwide with competitive factory pricing.',
+'hero.cta1':'Request a Quote','hero.cta2':'View Products',
+'trust.1':'Worldwide shipping','trust.2':'Custom samples & drawings accepted','trust.3':'Factory-direct pricing',
+'about.lbl':'About Us','about.ttl':'Over 25 Years of Manufacturing Excellence',
+'about.p1':'Founded in 1998, Zhongmai Machinery Manufacturing Co., Ltd. has been a trusted manufacturer and exporter of metal components for agricultural stockyards and farm gates for over two decades.',
+'about.p2':'Our products are developed specifically for international customers. Since our range is entirely tailored to foreign buyers, we work closely with each client to deliver exactly what they need — including custom orders based on your samples or drawings.',
+'about.p3':'We welcome inquiries from distributors, wholesalers, and agricultural hardware businesses globally.',
+'stat.1l':'Year founded','stat.2l':'Years of export experience','stat.3l':'Samples & drawings accepted','stat.4n':'Global','stat.4l':'Worldwide shipping',
+'prod.lbl':'Our Products','prod.ttl':'Full Range of Stockyard & Gate Hardware',
+'prod.sub':'Click any product to learn more. All products available for custom sizing — send us your sample or drawing.',
+'cat.all':'All Products','cat.stockyard':'Stockyard Components','cat.hinge':'Hinges & Gate Hardware','cat.latch':'Latches & Catches','cat.tool':'Tools & Installation',
+'modal.cta':'Request a Quote for This Product',
+'why.lbl':'Why Choose Us','why.ttl':'Precision Manufacturing, Competitive Pricing',
+'why.1t':'Advanced In-House Machinery','why.1p':'We operate laser-cutting machines, stamping machines, oil pressing machines, digital control lathes, and welding machines — all in-house for complete quality control at every production stage.',
+'why.2t':'Custom Orders Welcome','why.2p':'We accept customer-provided samples and technical drawings, manufacturing to your exact specifications. No catalogue needed — send us your requirements and we will quote you.',
+'why.3t':'Worldwide Export, Reliable Lead Times','why.3p':'We ship globally with experience serving buyers in Australia, the US, and beyond. Our production schedules and documentation are tailored for international freight.',
+'why.4t':'Consistent Quality Standards','why.4p':'Every batch is inspected before shipping. We ensure dimensional accuracy, proper galvanized or zinc-plated finishing, and structural integrity across all product lines.',
+'why.5t':'Factory-Direct Competitive Pricing','why.5p':'No middlemen — we quote directly from the factory floor. Volume discounts available, and we work transparently to find the best fit for your budget.',
+'why.6t':'25+ Years of Export Experience','why.6p':'Since 1998 we have built long-term relationships with international buyers who return to us because we consistently deliver on quality, communication, and price.',
+'con.lbl':'Get in Touch','con.ttl':'Request a Quote',
+'con.p':'Tell us what you need — a product from our range, a custom component, or a general inquiry. We respond within 1–2 business days.',
+'con.email':'Email','con.emailv':'info@zhongmaimachinery.com',
+'con.phone':'Phone / WhatsApp','con.phonev':'+86 XXX XXXX XXXX',
+'con.loc':'Location','con.locv':'Hebei, China — Worldwide shipping',
+'form.fn':'First Name','form.ln':'Last Name','form.email':'Email Address','form.country':'Country','form.pi':'Product Interest','form.msg':'Message',
+'form.fn.ph':'John','form.ln.ph':'Smith','form.email.ph':'john@company.com',
+'form.country.0':'Select country',
+'form.pi.0':'Select category','form.pi.1':'Stockyard Components','form.pi.2':'Hinges & Gate Hardware','form.pi.3':'Latches & Catches','form.pi.4':'Tools & Installation','form.pi.5':'Custom / OEM Order','form.pi.6':'Multiple / Other',
+'form.msg.ph':'Describe your requirements — quantities, custom specs, or reference a drawing.',
+'form.submit':'Send Inquiry','form.success':'Thank you! We will respond within 1–2 business days.',
+'img.ph':'Add product photo',
+'footer.tag':'Hebei, China · Est. 1998 · Worldwide Export',
+'footer.copy':'© 2025 Shijiazhuang Zhongmai Machinery. All rights reserved.'
+},
+de:{
+'nav.about':'Über uns','nav.products':'Produkte','nav.why':'Warum wir','nav.contact':'Kontakt','nav.quote':'Angebot anfragen',
+'hero.badge':'Gegr. 1998 · Über 20 Jahre Exporterfahrung',
+'hero.h1':'Präzisions-Metallkomponenten<br>für <em>Landwirtschaft &amp; Viehhof</em>',
+'hero.p':'Die Zhongmai Machinery Manufacturing Co., Ltd. ist spezialisiert auf hochwertige Metallkomponenten für Viehhofpaneele und Farmtore – weltweit exportiert zu wettbewerbsfähigen Fabrikpreisen.',
+'hero.cta1':'Angebot anfragen','hero.cta2':'Produkte ansehen',
+'trust.1':'Weltweiter Versand','trust.2':'Muster & Zeichnungen willkommen','trust.3':'Direktpreise ab Werk',
+'about.lbl':'Über uns','about.ttl':'Über 25 Jahre Fertigungsexzellenz',
+'about.p1':'Gegründet 1998 ist die Zhongmai Machinery Manufacturing Co., Ltd. seit über zwei Jahrzehnten ein zuverlässiger Hersteller und Exporteur von Metallkomponenten für landwirtschaftliche Viehhöfe und Farmtore.',
+'about.p2':'Unsere Produkte sind speziell für internationale Kunden entwickelt. Da unser Sortiment vollständig auf ausländische Käufer ausgerichtet ist, erarbeiten wir für jeden Kunden individuelle Lösungen – einschließlich Sonderanfertigungen nach Ihren Mustern oder Zeichnungen.',
+'about.p3':'Wir freuen uns über Anfragen von Händlern, Großhändlern und Agrarhardware-Unternehmen weltweit.',
+'stat.1l':'Gründungsjahr','stat.2l':'Jahre Exporterfahrung','stat.3l':'Muster & Zeichnungen','stat.4n':'Global','stat.4l':'Weltweiter Versand',
+'prod.lbl':'Unsere Produkte','prod.ttl':'Komplettes Sortiment für Viehhof & Tor',
+'prod.sub':'Klicken Sie auf ein Produkt für mehr Informationen. Alle Produkte in kundenspezifischen Maßen erhältlich.',
+'cat.all':'Alle Produkte','cat.stockyard':'Viehhof-Komponenten','cat.hinge':'Scharniere & Torbeschläge','cat.latch':'Riegel & Fänger','cat.tool':'Werkzeuge & Montage',
+'modal.cta':'Angebot für dieses Produkt anfragen',
+'why.lbl':'Warum wir','why.ttl':'Präzisionsfertigung zu wettbewerbsfähigen Preisen',
+'why.1t':'Moderne Eigenmaschinen','why.1p':'Wir betreiben Laserschneidmaschinen, Stanzmaschinen, Ölpressenmaschinen, CNC-Drehmaschinen und Schweißmaschinen – alles im eigenen Haus für vollständige Qualitätskontrolle in jeder Produktionsphase.',
+'why.2t':'Sonderanfertigungen willkommen','why.2p':'Wir akzeptieren Kundenmuster und technische Zeichnungen und fertigen nach Ihren genauen Vorgaben. Kein Katalog nötig – schicken Sie uns Ihre Anforderungen und wir erstellen ein Angebot.',
+'why.3t':'Weltweiter Export, zuverlässige Lieferzeiten','why.3p':'Wir versenden weltweit mit Erfahrung in der Belieferung von Käufern in Australien, den USA und darüber hinaus. Produktionspläne und Dokumente sind auf internationalen Frachtverkehr ausgelegt.',
+'why.4t':'Konstante Qualitätsstandards','why.4p':'Jede Charge wird vor dem Versand geprüft. Wir gewährleisten Maßhaltigkeit, korrekte Verzinkung sowie strukturelle Integrität über alle Produktlinien.',
+'why.5t':'Wettbewerbsfähige Fabrikpreise','why.5p':'Kein Zwischenhandel – wir kalkulieren direkt ab Werk. Mengenrabatte verfügbar, und wir arbeiten transparent, um die beste Lösung für Ihr Budget zu finden.',
+'why.6t':'25+ Jahre Exporterfahrung','why.6p':'Seit 1998 pflegen wir langfristige Beziehungen mit internationalen Käufern, die immer wieder zu uns kommen – weil wir bei Qualität, Kommunikation und Preis verlässlich liefern.',
+'con.lbl':'Kontakt','con.ttl':'Angebot anfragen',
+'con.p':'Teilen Sie uns Ihre Anforderungen mit – ein Produkt aus unserem Sortiment, eine Sonderanfertigung oder eine allgemeine Anfrage. Wir antworten innerhalb von 1–2 Werktagen.',
+'con.email':'E-Mail','con.emailv':'info@zhongmaimachinery.com',
+'con.phone':'Telefon / WhatsApp','con.phonev':'+86 XXX XXXX XXXX',
+'con.loc':'Standort','con.locv':'Hebei, China – Weltweiter Versand',
+'form.fn':'Vorname','form.ln':'Nachname','form.email':'E-Mail-Adresse','form.country':'Land','form.pi':'Produktinteresse','form.msg':'Nachricht',
+'form.fn.ph':'Hans','form.ln.ph':'Müller','form.email.ph':'hans@unternehmen.de',
+'form.country.0':'Land auswählen',
+'form.pi.0':'Kategorie auswählen','form.pi.1':'Viehhof-Komponenten','form.pi.2':'Scharniere & Torbeschläge','form.pi.3':'Riegel & Fänger','form.pi.4':'Werkzeuge & Montage','form.pi.5':'Sonderanfertigung / OEM','form.pi.6':'Mehrere / Sonstiges',
+'form.msg.ph':'Beschreiben Sie Ihre Anforderungen – Mengen, Sondermaße oder Zeichnungsreferenz.',
+'form.submit':'Anfrage senden','form.success':'Vielen Dank! Wir melden uns innerhalb von 1–2 Werktagen.',
+'img.ph':'Produktfoto hinzufügen',
+'footer.tag':'Hebei, China · Gegr. 1998 · Weltweiter Export',
+'footer.copy':'© 2025 Shijiazhuang Zhongmai Machinery. Alle Rechte vorbehalten.'
+}};
+
+const CATS=['all','stockyard','hinge','latch','tool'];
+const PRODS=[
+{cat:'stockyard',img:'',en:{name:'Stump System',desc:'Adjustable steel stump systems for anchoring stockyard panel posts. Bolt-down base plate with height-adjustable threaded mechanism for uneven terrain.'},de:{name:'Stumpfsystem',desc:'Höhenverstellbare Stahlstumpfsysteme zur Verankerung von Viehhofpfosten. Bodenplatte mit einstellbarem Gewindemechanismus für unebenes Gelände.'}},
+{cat:'stockyard',img:'',en:{name:'Permanent Cattle Yard Cleat',desc:'Heavy-duty cleats for securing cattle yard rails to posts. Designed for permanent installations with maximum load resistance.'},de:{name:'Permanente Viehhofklemme',desc:'Schwerlastklemmen zur Befestigung von Viehhofschienen an Pfosten. Konzipiert für Dauerinstallationen mit maximaler Belastungsresistenz.'}},
+{cat:'stockyard',img:'',en:{name:'Round Pipe Joiner',desc:'Steel sleeve joiners for connecting round pipe sections end-to-end. Ensures aligned, secure connections in panel and rail assembly.'},de:{name:'Rundrohrverbinder',desc:'Stahlmuffen-Verbinder zum End-zu-End-Verbinden von Rundrohren. Gewährleistet fluchtende, sichere Verbindungen beim Paneel- und Schienenaufbau.'}},
+{cat:'stockyard',img:'',en:{name:'Cattle Rail Accessories',desc:'Fittings and brackets for cattle rail systems including rectangular and square section adapters, sleeves, and mounts.'},de:{name:'Viehhofschienen-Zubehör',desc:'Beschläge und Winkel für Viehhofschienensysteme einschließlich Rechteck- und Quadratprofiladapter, Muffen und Halterungen.'}},
+{cat:'stockyard',img:'',en:{name:'Round & Square Galv. Post Caps',desc:'Galvanized post caps for round and square hollow section posts. Keeps water out, prevents corrosion, and gives a clean finished look.'},de:{name:'Runde & eckige Pfostenkappen',desc:'Verzinkte Pfostenkappen für runde und quadratische Hohlprofilpfosten. Schützt vor Wassereintritt und verhindert Korrosion.'}},
+{cat:'hinge',img:'',en:{name:'Self Closing Hinge',desc:'Spring-loaded hinge that automatically returns gates to closed position. Available in multiple sizes for light to heavy-duty gates.'},de:{name:'Selbstschließendes Scharnier',desc:'Federbelastetes Scharnier, das Tore automatisch in die geschlossene Position zurückführt. In mehreren Größen erhältlich.'}},
+{cat:'hinge',img:'',en:{name:'Field Gate Hinge Set',desc:'Complete bolt-through hinge set for field and farm gates, including chain retainer. Suitable for timber and steel posts.'},de:{name:'Feldscharnier-Set',desc:'Komplettes Durchschrauben-Scharnierset für Feld- und Farmtore mit Kettensicherung. Für Holz- und Stahlpfosten geeignet.'}},
+{cat:'hinge',img:'',en:{name:'Gudgeon',desc:'Screw-in and bolt-on gudgeon pins for timber and steel gate posts. Available in galvanized and zinc-plated finishes.'},de:{name:'Scharnierstift (Gudgeon)',desc:'Einschraub- und Einbolzen-Scharnierstifte für Holz- und Stahlpfosten. In verzinkter und galvanisierter Ausführung erhältlich.'}},
+{cat:'hinge',img:'',en:{name:'Clamp On Hinge Set',desc:'Pipe-clamp style hinge set that attaches directly to round posts without welding or drilling. Easy to install and reposition.'},de:{name:'Klemm-Scharnier-Set',desc:'Rohrklemmen-Scharnierset, das ohne Schweißen oder Bohren direkt an Rundpfosten befestigt wird. Einfach zu montieren.'}},
+{cat:'hinge',img:'',en:{name:'Weld On Hinge',desc:'Heavy-duty weld-on barrel hinges for steel gate frames and posts. Designed for high-cycle, high-load applications.'},de:{name:'Schweißscharnier',desc:'Schwerlast-Anschweißscharnier für Stahltor-Rahmen und -Pfosten. Ausgelegt für häufige Betätigung unter hoher Last.'}},
+{cat:'hinge',img:'',en:{name:'Gate Wheel',desc:'Large-diameter steel gate support wheel that bears gate weight during opening and closing. Reduces hinge stress on wide or heavy gates.'},de:{name:'Torrad',desc:'Großes Stahlrad zur Gewichtsentlastung beim Öffnen und Schließen breiter oder schwerer Tore. Reduziert Belastung der Scharniere.'}},
+{cat:'latch',img:'',en:{name:'Hook Latch',desc:'Simple hook-and-chain style latch for farm gates. Galvanized for outdoor use, fast one-hand operation.'},de:{name:'Hakenriegel',desc:'Einfacher Haken-und-Ketten-Riegel für Farmtore. Feuerverzinkt für den Außenbereich, schnelle Einhandbedienung.'}},
+{cat:'latch',img:'',en:{name:'Ring Latch',desc:'Ring-and-chain gate latch. Easily operated while on horseback or with one hand. Durable galvanized construction.'},de:{name:'Ringriegel',desc:'Ring-und-Ketten-Torriegel. Leicht bedienbar vom Pferd aus oder mit einer Hand. Langlebige verzinkte Ausführung.'}},
+{cat:'latch',img:'',en:{name:'Gate Latch Components',desc:'Individual latch components including strikers, keeps, and chain sets. Available separately for repairs or custom latch assemblies.'},de:{name:'Torriegelkomponenten',desc:'Einzelne Riegelkomponenten einschließlich Schließbleche, Halterungen und Kettensätze. Separat für Reparaturen oder individuelle Montagen erhältlich.'}},
+{cat:'latch',img:'',en:{name:'Open & Closed Handle Slam Latch',desc:'Spring-loaded slam latch with open and closed handle positions. Ideal for gates requiring positive latching without manual operation.'},de:{name:'Schlagriegel mit Griff',desc:'Federbelasteter Schlagriegel mit offener und geschlossener Griffposition. Ideal für Tore, die ein sicheres automatisches Einrasten erfordern.'}},
+{cat:'latch',img:'',en:{name:'Chain Catch',desc:'Pressed steel chain catch for securing gate chains. Mounts to post or gate frame, holds chain securely when gate is open.'},de:{name:'Kettenfänger',desc:'Pressstahlkettenfänger zur Sicherung von Torketten. Montage an Pfosten oder Torrahmen, hält Kette sicher im offenen Zustand.'}},
+{cat:'latch',img:'',en:{name:'Stay Plate Cable Kit',desc:'Steel stay plate with cable assembly for gate support and prop systems. Prevents gates from swinging past open position.'},de:{name:'Halteplatte mit Kabelset',desc:'Stahlhalteplatte mit Kabelgarnitur für Torstütz- und Absperrsysteme. Verhindert Überschwingen des Tores über die offene Position hinaus.'}},
+{cat:'latch',img:'',en:{name:'Tray Body Toggle Latch',desc:'Toggle-action latch for tray body and utility gate applications. Provides secure positive lock with a simple push-down action.'},de:{name:'Kippverschluss',desc:'Kippverschluss für Ladeflächentore. Bietet sichere Arretierung mit einfacher Drückaktion.'}},
+{cat:'tool',img:'',en:{name:'Post Plate',desc:'U-channel post base plate for anchoring timber posts in concrete footings or ground. Available in various channel widths.'},de:{name:'Pfostenplatte',desc:'U-Kanal-Pfostenfußplatte zur Verankerung von Holzpfosten in Betonfundamenten oder im Boden. In verschiedenen Kanalbreiten erhältlich.'}},
+{cat:'tool',img:'',en:{name:'Wire Spinner',desc:'Fencing wire dispensing spinner for controlled payout of barbed or plain wire from coils. Reduces tangling during fence installation.'},de:{name:'Drahtabroller',desc:'Zaundrahl-Abrollvorrichtung für kontrollierten Drahtabzug von Spulen bei der Fechteninstallation.'}},
+{cat:'tool',img:'',en:{name:'Post Lifter',desc:'Lever-action mechanical post lifter for removing star pickets and timber posts from the ground. Reduces labour and back strain.'},de:{name:'Pfostenheber',desc:'Hebelwerkzeug zum Entfernen von Zaunpfählen und Holzpfosten aus dem Boden. Reduziert Aufwand und körperliche Belastung.'}},
+{cat:'tool',img:'',en:{name:'Post Driver',desc:'Weighted steel manual post driver for driving star pickets and small posts. Drop-action with closed top cap.'},de:{name:'Pfosteintreiber',desc:'Gewichteter Stahlrammbär zum manuellen Einschlagen von Zaunpfählen. Schlagaktion mit geschlossenem Deckelkopf.'}}
+];
+
+let curLang='en', curCat='all';
+
+function t(k){return T[curLang][k]||T.en[k]||k;}
+
+function applyLang(){
+  document.documentElement.lang=curLang;
+  document.querySelectorAll('[data-t]').forEach(el=>{const v=t(el.dataset.t);if(v!==undefined)el.textContent=v;});
+  document.querySelectorAll('[data-th]').forEach(el=>{const v=t(el.dataset.th);if(v!==undefined)el.innerHTML=v;});
+  document.querySelectorAll('[data-tp]').forEach(el=>{const v=t(el.dataset.tp);if(v!==undefined)el.placeholder=v;});
+  document.querySelectorAll('.lbtn').forEach(b=>b.classList.toggle('active',b.dataset.lang===curLang));
+}
+
+function buildTabs(){
+  const c=document.getElementById('ctabs');
+  c.innerHTML='';
+  CATS.forEach(k=>{
+    const b=document.createElement('div');
+    b.className='ct'+(k===curCat?' active':'');
+    b.dataset.cat=k;
+    b.textContent=t('cat.'+k);
+    b.onclick=()=>{curCat=k;renderProducts();buildTabs();};
+    c.appendChild(b);
+  });
+}
+
+function renderProducts(){
+  const g=document.getElementById('pg');
+  g.innerHTML='';
+  PRODS.filter(p=>curCat==='all'||p.cat===curCat).forEach(p=>{
+    const d=p[curLang]||p.en;
+    const card=document.createElement('div');
+    card.className='pc';
+    const hasImg=p.img&&p.img.length>0;
+    card.innerHTML=`<div class="pim">${hasImg?`<img src="${p.img}" alt="${d.name}">`:`<div class="pph"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="4" width="22" height="20" rx="2.5" stroke="#b8c8d8" stroke-width="1.4"/><circle cx="10" cy="12" r="3" stroke="#b8c8d8" stroke-width="1.4"/><path d="M3 20l6-5 5 4 4-3 7 5" stroke="#b8c8d8" stroke-width="1.4" stroke-linecap="round"/></svg><span>${t('img.ph')}</span></div>`}</div><div class="pname">${d.name}</div>`;
+    card.onclick=()=>openModal(p);
+    g.appendChild(card);
+  });
+}
+
+function openModal(p){
+  const d=p[curLang]||p.en;
+  document.getElementById('m-nm').textContent=d.name;
+  document.getElementById('m-ds').textContent=d.desc;
+  document.getElementById('m-cta').textContent=t('modal.cta');
+  const mim=document.getElementById('mim');
+  if(p.img){mim.innerHTML=`<img src="${p.img}" alt="${d.name}" style="width:100%;height:100%;object-fit:contain;padding:14px">`;}
+  else{mim.innerHTML=`<svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" rx="4" stroke="#c5d2e0" stroke-width="1.5"/><circle cx="13" cy="15" r="4" stroke="#c5d2e0" stroke-width="1.5"/><path d="M4 26l8-6 6 5 5-4 9 7" stroke="#c5d2e0" stroke-width="1.5" stroke-linecap="round"/></svg>`;}
+  document.getElementById('mo').classList.add('open');
+}
+
+function closeMo(e){if(e.target===document.getElementById('mo'))document.getElementById('mo').classList.remove('open');}
+function scrollContact(){document.getElementById('mo').classList.remove('open');document.getElementById('contact').scrollIntoView({behavior:'smooth'});}
+
+function setLang(l){curLang=l;applyLang();buildTabs();renderProducts();}
+
+function submitForm(){
+  document.getElementById('fsuc').style.display='block';
+  document.getElementById('fsuc').textContent=t('form.success');
+  document.querySelectorAll('#cf input,#cf select,#cf textarea,#cf button').forEach(el=>el.disabled=true);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});
+});
+
+setLang('en');
+</script>
+</body>
+</html>
